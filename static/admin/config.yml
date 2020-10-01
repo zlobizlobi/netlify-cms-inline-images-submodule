@@ -68,6 +68,17 @@ collections:
       - { label: 'Meta Description', name: 'metaDescription', widget: 'text' }
       - { label: 'Blog post content', name: 'body', widget: 'markdown' }
 
+  - name: 'categories'
+    label: 'Categories'
+    folder: '/content/_categories'
+    public_folder: '../../static{{media_folder}}'
+    create: true
+    slug: '{{name}}'
+    identifier_field: 'name'
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Label', name: 'label', widget: 'string' }
+
   - name: 'authors'
     label: 'Authors'
     folder: '/content/_authors'
