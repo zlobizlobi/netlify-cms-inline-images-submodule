@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "outDir": "./dist",
+    "lib": ["dom", "es2015", "es2016", "es2017"],
+    "jsx": "react",
+    "baseUrl": "./",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "noImplicitAny": true,
+    "sourceMap": false,
+    "types": ["node"]
+  },
+  "include": ["./**/*.tsx", "./@types/**/*"],
+  "paths": {
+    "@mdx-js": "./@types/@mdx-js/index.d.ts"
+  },
+  "exclude": ["./node_modules"]
+}

@@ -1,0 +1,84 @@
+media_folder: 'static/media'
+public_folder: '/media'
+local_backend: true
+
+collections:
+  - name: 'posts'
+    label: 'Posts'
+    folder: '/content/_posts'
+    extension: 'mdx'
+    public_folder: '../../static/media'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'URL slug', name: 'slug', widget: 'string' }
+      - label: 'Author Name'
+        name: 'authorName'
+        widget: 'relation'
+        multiple: false
+        options_length: 10
+        collection: 'authors'
+        search_fields: ['name']
+        value_field: 'name'
+      - label: 'Author Avatar'
+        name: 'authorAvatar'
+        widget: 'image'
+        allow_multiple: false
+      - label: 'Date'
+        name: 'date'
+        widget: 'datetime'
+        time_format: false
+      - label: 'Categories'
+        name: 'categories'
+        widget: 'relation'
+        multiple: true
+        options_length: 10
+        collection: 'categories'
+        display_fields: ['label']
+        search_fields: ['name', 'label']
+        value_field: 'name'
+      - label: 'Meta title'
+        name: 'metaTitle'
+        widget: 'string'
+      - label: 'Meta links'
+        name: 'metaLinks'
+        widget: 'list'
+        fields:
+          - {
+              label: 'Rel attr',
+              name: 'rel',
+              default: 'alternate',
+              widget: 'string',
+            }
+          - { label: 'Hreflang attr', name: 'hreflang', widget: 'string' }
+          - { label: 'Href attr', name: 'href', widget: 'string' }
+      - {
+          label: 'Main image',
+          name: 'mainImage',
+          widget: 'image',
+          allow_multiple: false,
+        }
+      - {
+          label: 'Main image alt attribute',
+          name: 'mainImageAltText',
+          widget: 'string',
+        }
+      - { label: 'Meta Description', name: 'metaDescription', widget: 'text' }
+      - { label: 'Blog post content', name: 'body', widget: 'markdown' }
+
+  - name: 'authors'
+    label: 'Authors'
+    folder: '/content/_authors'
+    create: true
+    slug: '{{name}}'
+    identifier_field: name
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - {
+          label: 'Avatar',
+          name: 'avatar',
+          widget: 'image',
+          allow_multiple: false,
+        }
